@@ -12,6 +12,11 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <!-- Leaflet -->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+        <link rel="stylesheet" href="css/map.css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
@@ -34,18 +39,20 @@
             </div>
         </nav>
         <!-- Masthead-->
+        <!-- Image credit for background goes to the US National Archive -->
         <header class="masthead">
             <div class="container d-flex h-100 align-items-center">
                 <div class="mx-auto text-center">
                     <h1 class="mx-auto my-0 text-uppercase">Iditarod Race</h1>
-                    <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
-                    <a class="btn btn-primary js-scroll-trigger" href="#about">Get Started</a>
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5">A Dog Sled Race with Rich History.</h2>
+                    <a class="btn btn-primary js-scroll-trigger" href="https://iditarod.com/">Visit Official Website</a>
                 </div>
             </div>
         </header>
         <!-- About-->
         <section class="about-section text-center" id="about">
             <div class="container">
+              <!--
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <h2 class="text-white mb-4">Built with Bootstrap 4</h2>
@@ -57,12 +64,14 @@
                     </div>
                 </div>
                 <img class="img-fluid" src="assets/img/ipad.png" alt="" />
+              -->
             </div>
         </section>
-        <!-- Projects-->
+        <!-- History-->
         <section class="projects-section bg-light" id="projects">
             <div class="container">
-                <!-- Featured Project Row-->
+              <!--
+
                 <div class="row align-items-center no-gutters mb-4 mb-lg-5">
                     <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/bg-masthead.jpg" alt="" /></div>
                     <div class="col-xl-4 col-lg-5">
@@ -72,7 +81,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Project One Row-->
+
                 <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
                     <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-01.jpg" alt="" /></div>
                     <div class="col-lg-6">
@@ -87,7 +96,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Project Two Row-->
+
                 <div class="row justify-content-center no-gutters">
                     <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-02.jpg" alt="" /></div>
                     <div class="col-lg-6 order-lg-first">
@@ -103,9 +112,35 @@
                     </div>
                 </div>
             </div>
+          -->
         </section>
-        <!-- Signup-->
+        <!-- Map-->
         <section class="signup-section" id="signup">
+          <div id="map">
+            <script type="text/javascript">
+              var map = L.map('map', {
+                maxZoom: 16,
+                minZoom: 13
+              }).setView([47.639, -122.299], 14);
+
+              var grayscale = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}@2x.png').addTo(map);
+              var streets = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}@2x.png');
+              var satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}@2x');
+
+              var baseLayers = {
+                'Grayscale': grayscale,
+                'Streets': streets,
+                'Satellite': satellite
+              };
+
+              L.control.layers(baseLayers, {
+                collapsed: false,
+                position: 'topright'
+              }).addTo(map);
+
+            </script>
+          </div>
+          <!--
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-lg-8 mx-auto text-center">
@@ -118,51 +153,10 @@
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- Contact-->
-        <section class="contact-section bg-black">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Address</h4>
-                                <hr class="my-4" />
-                                <div class="small text-black-50">4923 Market Street, Orlando FL</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-envelope text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Email</h4>
-                                <hr class="my-4" />
-                                <div class="small text-black-50"><a href="#!">hello@yourdomain.com</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-mobile-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Phone</h4>
-                                <hr class="my-4" />
-                                <div class="small text-black-50">+1 (555) 902-8832</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="social d-flex justify-content-center">
-                    <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                    <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                    <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
+          -->
         </section>
         <!-- Footer-->
-        <footer class="footer bg-black small text-center text-white-50"><div class="container">Copyright © Your Website 2020</div></footer>
+        <footer class="footer bg-black small text-center text-white-50"><div class="container">Henry Ko and Manya Rozet</div></footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
