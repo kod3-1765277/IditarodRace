@@ -15,7 +15,8 @@
         <!-- Leaflet -->
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
         <link rel="stylesheet" href="css/map.css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
@@ -32,8 +33,8 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">History</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">Map</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#history">History</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#map">Map</a></li>
                     </ul>
                 </div>
             </div>
@@ -44,52 +45,26 @@
             <div class="container d-flex h-100 align-items-center">
                 <div class="mx-auto text-center">
                     <h1 class="mx-auto my-0 text-uppercase">Iditarod Race</h1>
-                    <h2 class="text-white-50 mx-auto mt-2 mb-5">A Dog Sled Race with Rich History.</h2>
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5">A Dog Sled Race with a Rich History</h2>
                     <a class="btn btn-primary js-scroll-trigger" href="https://iditarod.com/">Visit Official Website</a>
                 </div>
             </div>
         </header>
-        <!-- About-->
-        <section class="about-section text-center" id="about">
-            <div class="container">
-              <!--
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <h2 class="text-white mb-4">Built with Bootstrap 4</h2>
-                        <p class="text-white-50">
-                            Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
-                            <a href="https://startbootstrap.com/theme/grayscale/">the preview page</a>
-                            . The theme is open source, and you can use it for any purpose, personal or commercial.
-                        </p>
-                    </div>
-                </div>
-                <img class="img-fluid" src="assets/img/ipad.png" alt="" />
-              -->
-            </div>
-        </section>
-        <!-- History-->
-        <section class="projects-section bg-light" id="projects">
-            <div class="container">
-              <!--
 
-                <div class="row align-items-center no-gutters mb-4 mb-lg-5">
-                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/bg-masthead.jpg" alt="" /></div>
-                    <div class="col-xl-4 col-lg-5">
-                        <div class="featured-text text-center text-lg-left">
-                            <h4>Shoreline</h4>
-                            <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any project - even commercial projects! Download it, customize it, and publish your website!</p>
-                        </div>
-                    </div>
-                </div>
-
+        <!--About-->
+        <section class="projects-section bg-light" id="about">
+            <div class="container">
+                <h2 class="text-black mb-4 text-center">About</h2>
                 <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
-                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-01.jpg" alt="" /></div>
+
+                    <div class="col-lg-6"><img class="img-fluid" src="img/iditarod_huskies.jpeg" alt="" /></div>
                     <div class="col-lg-6">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-left">
-                                    <h4 class="text-white">Misty</h4>
-                                    <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else, along with a description.</p>
+                                    <h4 class="text-white">The What</h4>
+                                    <p class="mb-0 text-white-50">The Iditarod is an annual dog sled race that occurs in the state of Alaska.
+                                    It spans a distance of over 1,000 miles, and attracts more than 100 mushers (dog sled drivers) each year.</p>
                                     <hr class="d-none d-lg-block mb-0 ml-0" />
                                 </div>
                             </div>
@@ -98,63 +73,114 @@
                 </div>
 
                 <div class="row justify-content-center no-gutters">
-                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-02.jpg" alt="" /></div>
+                    <div class="col-lg-6"><img class="img-fluid" src="img/wilderness.jpeg" alt="" /></div>
                     <div class="col-lg-6 order-lg-first">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-right">
-                                    <h4 class="text-white">Mountains</h4>
-                                    <p class="mb-0 text-white-50">Another example of a project with its respective description. These sections work well responsively as well, try this theme on a small screen!</p>
+                                    <h4 class="text-white">The When</h4>
+                                    <p class="mb-0 text-white-50">The race occurs in early March, usually beginning on the first Saturday of the month.
+                                    </p>
                                     <hr class="d-none d-lg-block mb-0 mr-0" />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-          -->
-        </section>
-        <!-- Map-->
-        <section class="signup-section" id="signup">
-          <div id="map">
-            <script type="text/javascript">
-              var map = L.map('map', {
-                maxZoom: 16,
-                minZoom: 13
-              }).setView([47.639, -122.299], 14);
 
-              var grayscale = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}@2x.png').addTo(map);
-              var streets = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}@2x.png');
-              var satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}@2x');
+                <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
 
-              var baseLayers = {
-                'Grayscale': grayscale,
-                'Streets': streets,
-                'Satellite': satellite
-              };
-
-              L.control.layers(baseLayers, {
-                collapsed: false,
-                position: 'topright'
-              }).addTo(map);
-
-            </script>
-          </div>
-          <!--
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10 col-lg-8 mx-auto text-center">
-                        <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-                        <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
-                        <form class="form-inline d-flex">
-                            <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" type="email" placeholder="Enter email address..." />
-                            <button class="btn btn-primary mx-auto" type="submit">Subscribe</button>
-                        </form>
+                    <div class="col-lg-6"><img class="img-fluid" src="img/musher.jpeg" alt="" /></div>
+                    <div class="col-lg-6">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white">The Where</h4>
+                                    <p class="mb-0 text-white-50">  The race starts in Anchorage and ends in Nome.
+                                      There are two set routes for the race - both are essentially the same, with only a
+                                      few differences. On even years, the route loops North, and on odd years, the route loops South. Due to the COVID-19 pandemic, the route for the 2021 Iditarod was altered to become shorter.</p>
+                                    <hr class="d-none d-lg-block mb-0 ml-0" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-          -->
         </section>
+
+        <!--History-->
+        <section class="about-section text-center" id="history">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="text-white mb-4">History</h2>
+                        <p class="text-white-50">
+                          Dog sleds were used for work and day-to-day transportation, especially in Native villages.
+                          During WWII, mushers, or dog sled drivers, patrolled the wilderness of western Alaska. In the 1960s,
+                          after the invention of snowmobiles, it became less common to see dog teams across the state.
+                        </p>
+                        <p class="text-white-50">
+                          A woman named Dorothy Page, who was head of the Wasilla-Knik Centennial Committee, was charged
+                          with celebrating Alaska’s 100th year being a US Territory in 1967. She came up with the idea of
+                          starting a dog sled race over the historic Iditarod Trail in 1964. With help from Joe Redington Sr.,
+                          who wanted to preserve and recognize the Trail, the two worked together to create the race.
+                        </p>
+                        <p class="text-white-50">
+                          The Trail gained its fame for multiple reasons. Not only was it a historic gold rush and mail route,
+                          it also was the route taken in 1925 when dog dog sleds were used to transport a serum to Nome to help people ill with diptheria.
+                          This was called the “Great Race of Mercy”. This brought fame to dog teams, especially Balto, the lead dog
+                          of the team that reached Nome and Leonhard Seppala, his musher.
+                          Redington wanted to honor the Trail's rich history, as well as save sled dog culture,
+                          since it was quickly being phased out with the invention of snowmobiles.
+                        </p>
+                        <p class="text-white-50">
+                          After several failed race attempts in 1967 and 1969, interest was quickly lost. This race was 56 miles
+                          from Knik to Big Lake. A re-imagined, long-distance race all the way to Nome was created in 1973,
+                          with the US Army helping to clear out portions of the trail.
+                        </p>
+                        <p class="text-white-50">
+                          Ultimately, the race commemorates the role that sled dogs played in the settlements of Alaska.
+                          Mushers in the race travel between checkpoints just like freight mushers did.
+                          At the end of every race, mushers are greeted in Nome by the city’s fire siren, and by a crowd,
+                          regardless of the time of day or in which place they end up.
+                        </p>
+                    </div>
+                </div>
+                <img class="img-fluid" src="img/musher_dog.jpeg" alt="" />
+            </div>
+        </section>
+
+
+        <section class="signup-section" id="map">
+          <div class="container">
+            <div id="map">
+              <script type="text/javascript">
+                var map = L.map('map', {
+                  maxZoom: 16,
+                  minZoom: 13
+                }).setView([47.639, -122.299], 14);
+
+                var grayscale = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}@2x.png').addTo(map);
+                var streets = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}@2x.png');
+                var satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}@2x');
+
+                /*var baseLayers = {
+                  'Grayscale': grayscale,
+                  'Streets': streets,
+                  'Satellite': satellite
+                };
+
+                L.control.layers(baseLayers, {
+                  collapsed: false,
+                  position: 'topright'
+                }).addTo(map);*/
+
+              </script>
+            </div>
+          </div>
+        </section>
+
         <!-- Footer-->
         <footer class="footer bg-black small text-center text-white-50"><div class="container">Henry Ko and Manya Rozet</div></footer>
         <!-- Bootstrap core JS-->
