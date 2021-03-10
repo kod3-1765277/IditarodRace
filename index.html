@@ -160,17 +160,55 @@
           <div id="map"></div>
           <script type="text/javascript">
             var map = L.map('map', {
-              maxZoom: 16,
-              minZoom: 13
-            }).setView([47.639, -122.299], 14);
+              maxZoom: 20,
+              minZoom: 0
+            }).setView([64.7322, -156.9352], 7);
+            // find a better coordinate pair to set view
 
             map.invalidateSize();
 
-            var grayscale = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}@2x.png').addTo(map);
-            var streets = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}@2x.png');
-            var satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}@2x');
+            var grayscale = L.tileLayer(' https://{s}.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png').addTo(map);
+            //var streets = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}@2x.png');
+            //var satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}@2x');
 
-            var baseLayers = {
+            L.geoJson.ajax("assets/checkpoints.geojson").addTo(map);
+
+            L.geoJson.ajax("assets/route.geojson").addTo(map);
+
+            var ophir = L.marker([63.1460, -156.5299])
+
+            var iditarod = L.marker([62.5446, -158.0984]).addTo(map);
+
+            var shageluk = L.marker([62.6550, -159.5323]).addTo(map);
+
+            var anvik = L.marker([62.6522, -160.1990]).addTo(map);
+
+            var grayling = L.marker([62.9054, -160.0642]).addTo(map);
+
+            var eagle_island = L.marker([63.5612, -159.5182]).addTo(map);
+
+            var kaltag = L.marker([64.3138, -158.7257])
+
+            var latlngs = Array();
+
+            //Get latlng from markers
+            latlngs.push(ophir.getLatLng());
+
+            latlngs.push(iditarod.getLatLng());
+
+            latlngs.push(shageluk.getLatLng());
+
+            latlngs.push(anvik.getLatLng());
+
+            latlngs.push(grayling.getLatLng());
+
+            latlngs.push(eagle_island.getLatLng());
+
+            latlngs.push(kaltag.getLatLng());
+
+            var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+
+            /*var baseLayers = {
               'Grayscale': grayscale,
               'Streets': streets,
               'Satellite': satellite
@@ -179,7 +217,9 @@
             L.control.layers(baseLayers, {
               collapsed: false,
               position: 'topright'
-            }).addTo(map);
+            }).addTo(map);*/
+
+
 
           </script>
         </section>
