@@ -12,14 +12,18 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-        <!-- Leaflet -->
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-
-        <link rel="stylesheet" href="css/map.css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/map.css" />
+        <!-- Leaflet -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+          integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+          crossorigin="">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -34,7 +38,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#history">History</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#map">Map</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#map_canvas">Map</a></li>
                     </ul>
                 </div>
             </div>
@@ -152,33 +156,32 @@
         </section>
 
 
-        <section class="signup-section" id="map">
-          <div class="container">
-            <div id="map">
-              <script type="text/javascript">
-                var map = L.map('map', {
-                  maxZoom: 16,
-                  minZoom: 13
-                }).setView([47.639, -122.299], 14);
+        <section class="signup-section" id="map_canvas">
+          <div id="map"></div>
+          <script type="text/javascript">
+            var map = L.map('map', {
+              maxZoom: 16,
+              minZoom: 13
+            }).setView([47.639, -122.299], 14);
 
-                var grayscale = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}@2x.png').addTo(map);
-                var streets = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}@2x.png');
-                var satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}@2x');
+            map.invalidateSize();
 
-                var baseLayers = {
-                  'Grayscale': grayscale,
-                  'Streets': streets,
-                  'Satellite': satellite
-                };
+            var grayscale = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}@2x.png').addTo(map);
+            var streets = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}@2x.png');
+            var satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}@2x');
 
-                L.control.layers(baseLayers, {
-                  collapsed: false,
-                  position: 'topright'
-                }).addTo(map);
+            var baseLayers = {
+              'Grayscale': grayscale,
+              'Streets': streets,
+              'Satellite': satellite
+            };
 
-              </script>
-            </div>
-          </div>
+            L.control.layers(baseLayers, {
+              collapsed: false,
+              position: 'topright'
+            }).addTo(map);
+
+          </script>
         </section>
 
         <!-- Footer-->
