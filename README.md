@@ -7,6 +7,7 @@ The project is a website which includes the history, general information, and ra
 Responsive designs are included in the website, allowing for the sections of the websites to be scalable for smaller screens. The website is also scrollable, as it uses sections instead of different pages.
 
 ## Project Goal
+The goal of this project is to inform a curious audience on the history and nature of the Iditarod Sled Dog Race. It is a major part of Alasakan culture and highlights the important role dog sleds played in the past as a means of traversing the extremely challenging terrain in the state. 
 
 ## Data Sources
 - [Iditarod Race Website](https://iditarod.com/race/checkpoints/)
