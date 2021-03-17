@@ -160,9 +160,11 @@
         minZoom: 0
       }).setView([60.6522, -157.1990], 7);
 
-      map.invalidateSize();
+      var grayscale = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png').addTo(map);
+      var streets = L.tileLayer('http://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}@2x.png');
+      var satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}@2x');
 
-      let grayscale = L.tileLayer(' https://{s}.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png').addTo(map);
+      map.invalidateSize();
 
       L.geoJson.ajax("assets/checkpoints.geojson", {
         onEachFeature: function(feature, layer) {
@@ -193,17 +195,6 @@
       let polyline = L.polyline(latlngs, {
         color: 'red'
       }).addTo(map).bindPopup("Odd Year Race Route (Southern Route)");
-
-      /*var baseLayers = {
-        'Grayscale': grayscale,
-        'Streets': streets,
-        'Satellite': satellite
-      };
-
-      L.control.layers(baseLayers, {
-        collapsed: false,
-        position: 'topright'
-      }).addTo(map);*/
 
       let takotna = L.marker([62.98715, -156.0691]);
       let mcgrath = L.marker([62.95839, -155.5976]);
@@ -272,6 +263,20 @@
       };
 
       legend.addTo(map);
+
+      var layerControl = new L.Control.Layers(null, {
+        'Grayscale': grayscale,
+        'Streets': streets,
+        'Satellite': satellite
+      },
+      {
+        collapsed: false,
+        position: 'topright'
+      }).addTo(map)
+
+      layerControl = L.control({
+        collapsed: false
+      });
 
       map.attributionControl.addAttribution('Iditarod Race Route |  Base Map &copy; CartoDB | Made By Henry Ko and Manya Rozet');
     </script>
