@@ -173,8 +173,12 @@
         onEachFeature: function(feature, layer) {
           layer.bindPopup("Checkpoint Name: " + feature.properties.name);
         },
-        pointToLayer: function (feature, coordinates) {
-          return L.marker(coordinates, {icon: L.divIcon({className: 'fas fa-dog fa-2x' })});
+        pointToLayer: function(feature, coordinates) {
+          return L.marker(coordinates, {
+            icon: L.divIcon({
+              className: 'fas fa-dog fa-2x'
+            })
+          });
         }
       }).addTo(map);
 
