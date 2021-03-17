@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin="">
   </script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
 </head>
 
@@ -169,18 +172,45 @@
       L.geoJson.ajax("assets/checkpoints.geojson", {
         onEachFeature: function(feature, layer) {
           layer.bindPopup("Checkpoint Name: " + feature.properties.name);
+        },
+        pointToLayer: function (feature, coordinates) {
+          return L.marker(coordinates, {icon: L.divIcon({className: 'fas fa-dog fa-2x' })});
         }
       }).addTo(map);
 
       L.geoJson.ajax("assets/route.geojson").addTo(map).bindPopup("Even Year Race Route (Northern Route)");
 
       let ophir = L.marker([63.1460, -156.5299]);
-      let iditarod = L.marker([62.5446, -158.0984]).addTo(map).bindPopup("Checkpoint Name: Iditarod");
-      let shageluk = L.marker([62.6550, -159.5323]).addTo(map).bindPopup("Checkpoint Name: Shageluk");
-      let anvik = L.marker([62.6522, -160.1990]).addTo(map).bindPopup("Checkpoint Name: Anvik");
-      let grayling = L.marker([62.9054, -160.0642]).addTo(map).bindPopup("Checkpoint Name: Grayling");
-      let eagle_island = L.marker([63.5612, -159.5182]).addTo(map).bindPopup("Checkpoint Name: Eagle Island");
-      let kaltag = L.marker([64.3138, -158.7257]).bindPopup("Checkpoint Name: Kaltag");
+      let iditarod = L.marker([62.5446, -158.0984], {
+        icon: L.divIcon({
+          className: 'fas fa-dog fa-2x'
+        })
+      }).addTo(map).bindPopup("Checkpoint Name: Iditarod");
+      let shageluk = L.marker([62.6550, -159.5323], {
+        icon: L.divIcon({
+          className: 'fas fa-dog fa-2x'
+        })
+      }).addTo(map).bindPopup("Checkpoint Name: Shageluk");
+      let anvik = L.marker([62.6522, -160.1990], {
+        icon: L.divIcon({
+          className: 'fas fa-dog fa-2x'
+        })
+      }).addTo(map).bindPopup("Checkpoint Name: Anvik");
+      let grayling = L.marker([62.9054, -160.0642], {
+        icon: L.divIcon({
+          className: 'fas fa-dog fa-2x'
+        })
+      }).addTo(map).bindPopup("Checkpoint Name: Grayling");
+      let eagle_island = L.marker([63.5612, -159.5182], {
+        icon: L.divIcon({
+          className: 'fas fa-dog fa-2x'
+        })
+      }).addTo(map).bindPopup("Checkpoint Name: Eagle Island");
+      let kaltag = L.marker([64.3138, -158.7257], {
+        icon: L.divIcon({
+          className: 'fas fa-dog fa-2x'
+        })
+      }).bindPopup("Checkpoint Name: Kaltag");
       let latlngs = Array();
 
       //Get latlng from markers
@@ -231,23 +261,6 @@
         color: 'rgb(51, 136, 255)'
       }).addTo(map).bindPopup("Even Year Race Route (Northern Route)");
 
-      /*
-      let legend = L.control({
-        position: 'bottomright'
-      });
-
-      legend.onAdd = function(map) {
-
-        let div = L.DomUtil.create('div', 'info_legend'),
-          labels = ["Northern Route", "Southern Route", "COVID Route"];
-
-        div.innerHTML = labels.join('<br>');
-
-        return div;
-      };
-
-      legend.addTo(map);*/
-
       let legend = L.control({
         position: 'bottomright'
       });
@@ -264,12 +277,11 @@
 
       legend.addTo(map);
 
-      var layerControl = new L.Control.Layers(null, {
+      var layerControl = new L.Control.Layers({
         'Grayscale': grayscale,
         'Streets': streets,
         'Satellite': satellite
-      },
-      {
+      }, null, {
         collapsed: false,
         position: 'topright'
       }).addTo(map)
