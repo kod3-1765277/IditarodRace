@@ -27,6 +27,7 @@ The goal of this project is to inform a curious audience on the history and natu
 - [Google Fonts](https://fonts.google.com/)
 - [GitHub](github.com)
 - [CartoDB](https://carto.com/)
+- [FontAwesome](https://fontawesome.com/)
 
 ## Acknowledgement
 We would like to thank Landon Reed and Morgan Herlocker for their willingness to share their Iditarod route and checkpoints geojson files on their GitHub repository publicly. Their data was essential in creating the webmap for the geonarrative. We would also like to thank the Iditarod website for maintaining their list of checkpoints and coordinates to the checkpoints so well.
